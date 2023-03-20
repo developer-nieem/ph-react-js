@@ -28,12 +28,12 @@ function App() {
           <p style={{color:'blue'}} >My Name : {name}</p>
           <p style={style} > My Name {job.name } im working on {job.job}</p>
           <p >My Name : {name}</p>
-          <Name></Name>
-          <Name></Name>
+          <Name name ="nieem" job="freelanching"></Name>
+          <Name name = "hasan" job="garments"></Name>
           <Name></Name>
           <h2>new Components</h2>
-          <Friends></Friends>
-          <Friends></Friends>
+          <Friends name="Hasan" like= "Best Friend"></Friends>
+          <Friends name =" Tarik" like = "Not Best"></Friends>
           <Friends></Friends>
           <Friends></Friends>
         </div>
@@ -43,20 +43,21 @@ function App() {
   );
 }
 
-function Name() {
+function Name(props) {
+  console.log(props);
   return (
     <div className="persion">
-    <h1>Nieem</h1>
-    <p>Freelancer</p>
+    <h1>{props.name}</h1>
+    <p>Job: {props.job}</p>
     </ div>
   )
 }
 
-const Friends = () => {
+const Friends = (props) => {
   return (
     <div style={friendStyle}>
-      <h1>Hasan</h1>
-      <p>Best Friend</p>
+      <h1>{props.name}</h1>
+      <p>{props.like}</p>
     </div>
   )
 }
