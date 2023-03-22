@@ -1,18 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect } from 'react';
+import Countries from './components/Countries/Countries';
 
 function App() {
   return (
     <div className="App">
      <div>
-      <LoadCountries></LoadCountries>
+     <Countries></Countries>
      </div>
     </div>
   );
 }
 
-function LoadCountries(){
+/* function LoadCountries(){
  
   const [countries , setCountries] = useState([])
   useEffect(()=>{
@@ -26,5 +27,5 @@ function LoadCountries(){
       <h2>Welcome to our World</h2>
     </div>
   )
-}
+} */
 export default App;
