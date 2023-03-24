@@ -20,14 +20,18 @@ const Businiss = () => {
     );
 };
 
-function Mans({picture,name, company, email, balance}){
+function Mans({picture,name, company, email, balance,_id}){
+    const addToCart =(id)=>{
+        console.log('added Item', id);
+    }
     return (
-        <div>
+        <div style={{border: '2px solid ', margin:"15px", padding:"15px"}}>
             <img src={picture} alt="" srcset="" />
             <h3>Name : {name}</h3>
             <p>Company: {company}</p>
             <p>Email: {email}</p>
             <p>Earn : {balance}</p>
+            <button onClick={() => addToCart(_id)}>Add to Cart</button>
         </div>
     )
 }
