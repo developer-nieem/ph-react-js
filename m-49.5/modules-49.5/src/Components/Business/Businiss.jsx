@@ -22,8 +22,16 @@ const Businiss = () => {
 
 function Mans({picture,name, company, email, balance,_id}){
     const addToCart =(id)=>{
-        console.log('added Item', id);
+        const qty = localStorage.getItem(id);
+        if(qty){
+            console.log('already');
+            const itemPlus = parseInt(qty) + 1;
+            localStorage.setItem(id, itemPlus);
+        }else{
+            localStorage.setItem(id, 1);
+        }
     }
+
     return (
         <div style={{border: '2px solid ', margin:"15px", padding:"15px"}}>
             <img src={picture} alt="" srcset="" />
