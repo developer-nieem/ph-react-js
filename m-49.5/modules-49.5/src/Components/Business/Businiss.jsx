@@ -22,14 +22,22 @@ const Businiss = () => {
 
 function Mans({picture,name, company, email, balance,_id}){
     const addToCart =(id)=>{
-        const qty = localStorage.getItem(id);
-        if(qty){
-            console.log('already');
-            const itemPlus = parseInt(qty) + 1;
-            localStorage.setItem(id, itemPlus);
-        }else{
-            localStorage.setItem(id, 1);
+        let shopingCart = {};
+
+        const storedCart = localStorage.getItem('shopping-cart')
+        if(storedCart){
+            shopingCart = JSON.parse(storedCart)
         }
+
+        const qty = shopingCart[id];
+        if(qty){
+            const itemPlus = parseInt(qty) + 1;
+            shopingCart[id] = itemPlus
+        }else{
+            shopingCart[id] = 1;
+        }
+
+        localStorage.setItem('shopping-cart', JSON.stringify(shopingCart))
     }
 
     return (
