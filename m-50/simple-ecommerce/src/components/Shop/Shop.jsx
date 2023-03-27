@@ -27,7 +27,7 @@ const Shop = () => {
                          ></Product>)
                 }
             </div>
-            <div className='bg-[#FF99004D] p-3'>
+            <div className='bg-[#FF99004D] p-3 ' >
                <Cart cart={cart}></Cart>
             </div>
         </div>
