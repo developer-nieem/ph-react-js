@@ -1,0 +1,71 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+import Header from './components/Header/Header';
+import ErrorPage from './components/Error-page/Error-page';
+import Home from './components/Home/Home';
+import First from './components/First/First';
+import Users from './components/Users/Users';
+import UserDetails from './components/UserDetails/UserDetails';
+
+
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <div>Hello this is home</div>,
+//     errorElement: <ErrorPage></ErrorPage>
+//   },
+//   {
+//     path:'/about',
+//     element: <About></About>
+//   },
+//   {
+//     path:'/contact',
+//     element: <Contact></Contact>
+    
+//   }
+// ])
+
+const router = createBrowserRouter([
+  {
+    path:'/',
+    element:<Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children:[
+      {
+        path:'/',
+        element: <First></First>
+      },
+      {
+        path: 'users',
+        element: <Users></Users>,
+        loader: () => fetch('https://jsonplaceholder.typicode.com/users')
+      },
+      {
+        path:'user/:userId',
+        element: <UserDetails></UserDetails>
+      },
+      {
+        path:'about',
+        element: <About></About>
+      },
+      {
+        path:'contact',
+        element: <Contact></Contact>
+      }
+    ]
+  }
+])
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    {/* <App /> */}
+    <RouterProvider router={router}></RouterProvider>
+  </React.StrictMode>,
+)
