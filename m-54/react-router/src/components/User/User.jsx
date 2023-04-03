@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './User.css'
 
 const User = ({user}) => {
-    console.log(user);
+    // console.log(user);
     const {id, name , phone , email} = user
     return (
         <div className='data-user'>
