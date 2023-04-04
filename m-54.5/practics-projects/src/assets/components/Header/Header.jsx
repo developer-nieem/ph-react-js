@@ -15,10 +15,15 @@ const Header = () => {
             
           <ul className={`menu menu-horizontal px-1 flex-col md:flex-row  md:opacity-100 `}>
             <li>
-              <Link to='/restaurant'><a>Restaurant</a></Link>
+              <NavLink to='/restaurant' className={({ isActive }) =>
+                      isActive ? "active" : ""}><a>Restaurant</a></NavLink>
             </li>
             <li>
               <Link to='/restaurant'><a>MealDb</a></Link>
+            </li>
+            <li>
+                <NavLink to='/about' className={({ isActive }) =>
+                      isActive ? "active" : ""}> About Us </NavLink>
             </li>
           </ul>
          

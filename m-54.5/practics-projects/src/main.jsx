@@ -32,6 +32,10 @@ const route =createBrowserRouter([
         loader: ({params}) => fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.mealId}`)
       },
       {
+        path:'about',
+        element: <div><h1>this is about page </h1></div>
+      },
+      {
         path:'*',
         element: <ErrorPage></ErrorPage>
       }
