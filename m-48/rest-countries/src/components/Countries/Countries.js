@@ -16,6 +16,7 @@ const Countries = () => {
           {
             countries.map(country => <Country country={country} key={country.cca3}></Country>)
             }
+            
           </div>
         </div>
     );

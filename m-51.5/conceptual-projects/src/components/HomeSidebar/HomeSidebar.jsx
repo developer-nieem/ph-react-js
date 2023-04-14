@@ -29,6 +29,7 @@ const HomeSidebar = ({watchTime}) => {
     const calculateBreak = () =>{
         const getWatchValue = JSON.parse(time)  -  JSON.parse(breakTimeInfo) 
         toast("total watch time "+ getWatchValue + ' minute');
+       
     }
 
     return (

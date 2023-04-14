@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import app from '../firebase/firebase.init';
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut, GithubAuthProvider  } from "firebase/auth";
 
 
 const Login = () => {
@@ -23,6 +23,21 @@ const Login = () => {
         })
     }
 
+    const gitProvider = new GithubAuthProvider()
+const gitHubLogin = () =>{
+
+    signInWithPopup(auth, gitProvider)
+    .then(result => {
+        const user = result.user;
+        setUser(user)
+        console.log(user);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+}
+
+
     const signOutUser =()=>{
         signOut(auth).then(() => {
             setUser(null)
@@ -31,11 +46,15 @@ const Login = () => {
           });
           
     }
+
     return (
         <div>
            
             {
-                user? <button onClick={signOutUser}>signOut</button>:  <button onClick={googleLogin}>Google login</button>
+                user? <button onClick={signOutUser}>signOut</button>:  <div>
+                    <button onClick={googleLogin}>Google login</button>
+                    <button onClick={gitHubLogin}>Github login</button>
+                </div>
             }
             { user && <div>
                     <h1>{user.displayName}</h1>
