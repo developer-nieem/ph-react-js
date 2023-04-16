@@ -10,6 +10,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import AuthProvider from './provider/AuthProvider';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import Order from './components/Order';
+import Profile from './components/Profile';
 
 
  
@@ -28,8 +31,16 @@ import AuthProvider from './provider/AuthProvider';
         element: <Login></Login>
       },
       {
+        path: '/order',
+        element: <PrivateRoute> <Order></Order> </PrivateRoute>
+      },
+      {
         path:'/register',
         element:<Register></Register>
+      },
+      {
+        path:'/profile',
+        element:<PrivateRoute> <Profile></Profile> </PrivateRoute>
       }
     ]
   },
