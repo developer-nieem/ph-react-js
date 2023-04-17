@@ -4,7 +4,7 @@ import logo from"../../images/Logo.svg";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
-  const {logOut} =  useContext(AuthContext);
+  const {logOut , user} =  useContext(AuthContext);
 
   const logOutUser = () =>{
     logOut().then(()=>{}).catch(error=> {console.log(error.message);})
@@ -36,7 +36,15 @@ const Header = () => {
             <li>
               <Link to='/register'>Sign Up</Link>
             </li>
-            <span onClick={logOutUser} className="btn btn-primary">log out</span> 
+            {
+              user && <span onClick={logOutUser} className="btn btn-primary">log out</span> 
+            }
+             <li>
+              {
+                user && <span>{user.email}</span>
+              }
+            </li>
+
           </ul>
         </div>
       </div>

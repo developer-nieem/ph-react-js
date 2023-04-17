@@ -13,6 +13,8 @@ import cartProductsLoader from './loaders/cartProductsLoader';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AuthProvider from './provider/AuthProvider';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import CheckOut from './components/CheckOut/CheckOut';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,12 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'/checkout',
+        element: <PrivateRoute> <CheckOut></CheckOut> </PrivateRoute>
       }
+
     ]
   }
 ])
