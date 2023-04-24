@@ -27,7 +27,7 @@ const CardNews = ({ newsItem }) => {
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <img className='img-fluid' src={image_url} alt="" />
-                    <p className="card-text">{details.length < 250 ? <>{details}</> : <>{details.slice(0, 250)}....   <Link className='btn btn-link' to=''>Read more</Link> </>}</p>
+                    <p className="card-text">{details.length < 250 ? <>{details}</> : <>{details.slice(0, 250)}....   <Link className='btn btn-link' to={`/news/${_id}`}>Read more</Link> </>}</p>
 
                 </div>
                 <div className="card-footer text-body-secondary d-flex">

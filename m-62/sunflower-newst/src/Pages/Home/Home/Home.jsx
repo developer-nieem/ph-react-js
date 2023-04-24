@@ -8,6 +8,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Outlet } from 'react-router-dom';
 import Header from '../../Shared/Header';
 import Footer from '../../Shared/Footer';
+import HeaderBottom from '../../Shared/HeaderBottom';
 
 const Home = () => {
   const {user} = useContext(AuthContext);
@@ -15,6 +16,7 @@ const Home = () => {
     return (
       <>
         <Header></Header>
+        <HeaderBottom></HeaderBottom>
         <Container>
           <Row>
             <Col lg={3}> { <LeftNav></LeftNav> } </Col>

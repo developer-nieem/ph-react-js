@@ -11,7 +11,6 @@ const LeftNav = () => {
         .then(data=> setCategories(data))
     },[])
 
-    console.log(categories);
     return (
         <div>
             <h3>All Caterogy</h3>

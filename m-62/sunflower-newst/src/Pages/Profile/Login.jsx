@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import HeaderBottom from '../Shared/HeaderBottom';
 
 const Login = () => {
     
@@ -32,7 +33,8 @@ const Login = () => {
     }
 
     return (
-        <div className='w-75 m-auto mt-5 shadow-lg p-4'>
+        <>
+        <div className='w-25 m-auto mt-5 shadow-lg p-4'>
             <h3 className='text-center'>Login Your Account</h3>
             <form onSubmit={registerHandler}>
                 <div className="mb-3 mt-4">
@@ -52,6 +54,8 @@ const Login = () => {
                 <p className='mt-3'>Dont't Have An Account ? <Link to='/register'>Register</Link> </p>
             </form>
         </div>
+        </>
+
     );
 };
 

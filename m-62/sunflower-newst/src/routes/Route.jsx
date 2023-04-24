@@ -1,4 +1,5 @@
 import {
+  Navigate,
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../layouts/Main";
@@ -8,6 +9,9 @@ import Register from "../Pages/Profile/Register";
 import Profile from "../Pages/Profile/Profile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Catagory from "../Pages/Catagory/Catagory";
+import NewsLayout from "../layouts/NewsLayout";
+import News from "../Pages/News";
+import LoginLayout from "../layouts/LoginLayout";
 
 const route = createBrowserRouter([
     {
@@ -16,15 +20,7 @@ const route = createBrowserRouter([
         children:[
           {
             path:'/',
-            element:<Main></Main>
-          },
-          {
-            path:'/login',
-            element:<Login></Login>
-          },
-          {
-            path:'/register',
-            element:<Register></Register>
+            element:<Navigate to='/category/0'></Navigate>
           },
           {
             path:'/profile',
@@ -36,7 +32,39 @@ const route = createBrowserRouter([
             loader: ({params})=> fetch(`http://localhost:3000/categories/${params.id}`)
           }
         ]
+    },
+    {
+      path: 'news', 
+      element: <NewsLayout></NewsLayout>,
+      children: [
+          {
+              path: ':id',
+              element: <News></News>,
+              loader: ({params}) => fetch(`http://localhost:3000/news/${params.id}`)
+          }
+      ]
+    },
+    {
+      path:'login',
+      element: <LoginLayout></LoginLayout>,
+      children: [
+        {
+          path:'/login',
+          element: <Login></Login>
+        }
+      ]
+    },
+    {
+      path:'register',
+      element: <LoginLayout></LoginLayout>,
+      children: [
+        {
+          path:'/register',
+          element: <Register></Register>
+        }
+      ]
     }
+
 ])
 
 export default route

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import CardNews from '../Home/Home/HomeCardNews/CardNews';
+import HeaderBottom from '../Shared/HeaderBottom';
 
 const Catagory = () => {
     const {id} = useParams();

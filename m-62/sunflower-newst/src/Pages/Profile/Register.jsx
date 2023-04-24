@@ -25,9 +25,19 @@ const Register = () => {
     }
 
     return (
-        <div className='w-75 m-auto mt-5 shadow-lg p-4'>
+        <div className='w-25 m-auto mt-5 shadow-lg p-4'>
         <h3 className='text-center fs-5'>Register your account</h3>
         <form onSubmit={registerHandler}>
+            <div className="mb-3 mt-4">
+                <label for="inputName" className="form-label">Your Name</label>
+                <input type="text" className="form-control" id="inputName"  name='name'  />
+                
+            </div>
+            <div className="mb-3 mt-4">
+                <label for="profilePhoto" className="form-label">Photo URL</label>
+                <input type="url" className="form-control" id="profilePhoto"  name='photo'  />
+                
+            </div>
             <div className="mb-3 mt-4">
                 <label for="exampleInputEmail1" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' required />
