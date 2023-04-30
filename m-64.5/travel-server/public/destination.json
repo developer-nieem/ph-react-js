@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Tanah Lot",
+    "description": "An iconic temple perched on a rocky outcrop overlooking the sea.",
+    "image": "https://plus.unsplash.com/premium_photo-1678303396234-4180231353df"
+  },
+  {
+    "name": "Ubud Monkey Forest",
+    "description": "A nature reserve and Hindu temple complex inhabited by hundreds of monkeys.",
+    "image": "https://images.unsplash.com/photo-1565970141923-345a5f05a6e6"
+  },
+  {
+    "name": "Mount Batur",
+    "description": "An active volcano that can be climbed for stunning sunrise views.",
+    "image": "https://plus.unsplash.com/premium_photo-1664124888768-344f7710e6f4"
+  },
+  {
+    "name": "Cox's Bazar",
+    "description": "The longest natural sea beach in the world, stretching over 120 km along the Bay of Bengal.",
+    "image": "https://images.unsplash.com/photo-1668194252221-1401347c2c23"
+  },
+  {
+    "name": "Sundarbans",
+    "description": "A vast mangrove forest and UNESCO World Heritage site that is home to the Bengal tiger.",
+    "image": "https://images.unsplash.com/photo-1549300461-11c5b94e8855"
+  }
+]
