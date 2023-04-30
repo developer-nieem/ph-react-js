@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import app from "../firebase.config";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 
 const Login = () => {
 
 const [error , setError ]  =useState('');
-const [success , setSuccess] =  useState('')
+const [success , setSuccess] =  useState('');
+
+const emailRef =  useRef();
 
 const auth =  getAuth(app);
+
   const loginHandler = (event) => {
       event.preventDefault();
 
@@ -41,13 +45,32 @@ const auth =  getAuth(app);
         setError(error.message)
       })
   }
+
+
+  const passwordResetHandler = event =>{
+     const email = emailRef.current.value;
+     if (!email) {
+      alert('provide email address');
+      return;
+     }
+
+     sendPasswordResetEmail(auth , email)
+     .then(()=>{
+      alert('send email forget link')
+     })
+     .catch(error => {
+      console.log(error.message);
+     })
+
+  }
+  
   return (
     <div>
       <h2 className="text-center">Please login </h2>
      <form onSubmit={loginHandler} className="container mt-3">
       <div className="form-group mb-3">
         <label htmlFor="email">Email address</label>
-        <input type="email" className="form-control" id="email" placeholder="Enter email" required />
+        <input type="email" className="form-control" ref={emailRef} id="email" placeholder="Enter email" required />
       </div>
       <div className="form-group mb-3">
         <label htmlFor="password">Password</label>
@@ -62,6 +85,8 @@ const auth =  getAuth(app);
       </p>
 
       <p>If you have already account <Link to='/register'>Register</Link></p>
+      
+      <p>Forget Password ? Please reset . <button onClick={passwordResetHandler} className="bt btn-link">Reset password</button></p>
     </form>
 
     </div>

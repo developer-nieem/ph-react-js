@@ -6,18 +6,23 @@ import Header from './components/Header'
 import { Outlet, useLoaderData } from 'react-router-dom'
 import Footer from './components/Footer'
 
-export const productsContext =  createContext()
+export const ProductsContext =  createContext();
+export const CartContext =  createContext([]);
 function App() {
 
-  const products = useLoaderData()
+  const {data , initialCart } = useLoaderData()
+  
   return (
     <>
     
     <div className='md:min-h-[calc(100vh-150px)]'> 
-    <productsContext.Provider value={products}>
-            <Header></Header>
-          <Outlet></Outlet>
-    </productsContext.Provider>
+    <ProductsContext.Provider value={data}>
+          <CartContext.Provider value={initialCart}>
+                      <Header></Header>
+                      <Outlet></Outlet>
+          </CartContext.Provider>
+            
+    </ProductsContext.Provider>
     
     </div>
     <Footer></Footer>

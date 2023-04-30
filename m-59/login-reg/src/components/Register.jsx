@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, sendEmailVerification } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 import app from '../firebase.config';
 import { Link } from "react-router-dom";
 
@@ -32,6 +32,7 @@ const formHandler = (event) =>{
     const logedUser =  result.user;
     console.log(logedUser);
     sendEmailforVerify(user)
+    profileNameHandler(user , name)
     event.target.reset();
     setSuccess('User Created successfully ');
     setError('')
@@ -55,6 +56,14 @@ const sendEmailforVerify = (user) =>{
 }
 
 
+const profileNameHandler = (user, name) =>{
+  updateProfile(user , {
+    displayName: name,
+  })
+  .then(()=>{
+    console.log('username is update');
+  })
+}
 const emailHandler = (event) =>{
   // console.log(event.target.value);
 }
@@ -68,6 +77,8 @@ const passwordHandler = (event) => {
       
 
       <form onSubmit={formHandler}>
+
+        <input className='form-control mb-3' type="text"  name='name'  placeholder='Your name' / >
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
             Email address
